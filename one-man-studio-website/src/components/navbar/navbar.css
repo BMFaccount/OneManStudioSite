@@ -1,0 +1,41 @@
+navbar{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+.NavMenuContainer{
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template-columns: auto 5fr;
+    grid-template-rows: 1fr;
+}
+.NavMenuContainer img{
+    width: 100px;
+    height: 100px;
+    justify-self: right;
+}
+.NavMenu{
+    background-color: #E88600;
+    width: auto;
+    height: 50px;
+    border-radius: 10px 0px 0px 10px;
+
+    display: grid;
+    grid-template-columns: auto 3fr;
+    grid-template-rows: auto;
+}
+.NavMenuButtons{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.NavMenuButtons a{
+    font-size: 40px;
+}
