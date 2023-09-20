@@ -3,7 +3,9 @@
     width: auto;
     height: 100vh;
     grid-template-columns: 1fr;
-    grid-template-rows: 3fr 1fr;
+    grid-template-rows: auto 1fr;
+    margin-top: 50px;
+    row-gap: 100px;
 }
 .GameList{
     display: flex;
@@ -12,22 +14,35 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 10px;
+    row-gap: 60px;
+    align-items: center;
 }
 .GameContainer{
-    width: auto;
-    height: 200px;
+    width: 300px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+
+    transform: perspective(1500px) rotateY(15deg);
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    transition: transform 1s ease 0s;
+  
+    &:hover {
+      transform: perspective(3000px) rotateY(5deg);
+    }
 }
 .GameContainer img{
-    width: auto;
+    width: 100%;
     height: 100%;
     border-radius: 15px;
 }
 .GameTitle{
     position: relative;
-    bottom: 15%;
-    left: 16%;
+    bottom: 20%;
     background-color: #0B2A3F;
-    width: 50%;
+    width: 70%;
+    left: 14%;
     border-radius: 10px 10px 0px 0px;
 }
 .GameTitle h1{
@@ -35,4 +50,22 @@
     font-family: 'Gill Sans Nova Cond Ultra Bold', sans-serif;
     font-size: 25px;
     text-align: center;
+}
+.SocialMediaLinks{
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr;
+}
+.SocialMediaLinks h3{
+    color: #5ab5ff3d;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.SocialMediaTitle{
+    background-color: #5ab5ff3d;
+    border-radius: 10px;
+    justify-self: center;
+    align-self: center;
+    height: fit-content;
 }

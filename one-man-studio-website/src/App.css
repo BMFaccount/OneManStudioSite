@@ -31,3 +31,15 @@ body{
     display: flex;
     flex-direction: column;
 }
+.bluefont{
+    color: #3591db;
+    font-family: 'Gill Sans Nova Cond Ultra Bold', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    margin: 0px;
+}
+.blueroundbox{
+    background-color: #5ab5ff3d;
+    border-radius: 10px;
+    width: fit-content;
+}
