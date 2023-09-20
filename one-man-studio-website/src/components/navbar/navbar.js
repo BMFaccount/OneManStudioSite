@@ -6,7 +6,7 @@ function NavBar(){
         <>
             <navbar>
                 <div className="NavMenuContainer">
-                    <img src="./images/onemanlogo2.png"></img>
+                    <img src="./images/onemanstudiologo3.png"></img>
                     <div className="NavMenu">
                         <h3 className="LogoFont">ONE
                             MAN 

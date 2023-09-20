@@ -14,21 +14,26 @@ navbar{
     display: grid;
     grid-template-columns: auto 5fr;
     grid-template-rows: 1fr;
+    margin-top: 50px;
 }
 .NavMenuContainer img{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     justify-self: right;
+    position: relative;
+    bottom: 50px;
+    left: 5px;
+    z-index: 10;
 }
 .NavMenu{
-    background-color: #E88600;
+    background-color: #3591db;
     width: auto;
     height: 50px;
     border-radius: 10px 0px 0px 10px;
 
     display: grid;
     grid-template-columns: auto 3fr;
-    grid-template-rows: auto;
+    grid-template-rows: 50px;
 }
 .NavMenuButtons{
     height: 50px;

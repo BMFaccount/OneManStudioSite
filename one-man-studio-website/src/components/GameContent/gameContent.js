@@ -7,7 +7,10 @@ function GameContent(){
             <div className="GameContentContainer">
                 <div className="GameView">
                     <div className="ImageContainer">
-                        <h2>TRAIN YOUR PENGUIN</h2>
+                        <div className="gameTitle">
+                            <h2>TRAIN YOUR PENGUIN</h2>
+                        </div>
+                        <img src="./gifs/losttroopergif.gif"/>
                     </div>
                 </div>
             </div>
