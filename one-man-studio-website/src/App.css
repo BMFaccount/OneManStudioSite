@@ -1,5 +1,5 @@
 body{
-    background-color: #0B2A3F;
+    background-color: #1b2838;
     margin: 0px;
     padding: 0px;
     height: 100%;
@@ -42,4 +42,21 @@ body{
     background-color: #5ab5ff3d;
     border-radius: 10px;
     width: fit-content;
+}
+
+/*colours of site*/
+.backgroundColor{
+    background-color: #1b2838 !important;
+}
+.setColorToBackgroundColor{
+    color: #1b2838 !important;
+}
+.setColorToPrimaryColor{
+    color: #66c0f4 !important;
+}
+.setBackgroundColorToPrimaryColor{
+    background-color: #66c0f4 !important;
+}
+.setBackgroundColorToSecondaryColor{
+    background-color: #2a475e !important;
 }

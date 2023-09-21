@@ -6,14 +6,14 @@ function NavBar(){
         <>
             <navbar>
                 <div className="NavMenuContainer">
-                    <img src="./images/onemanstudiologo3.png"></img>
-                    <div className="NavMenu">
-                        <h3 className="LogoFont">ONE
+                    <img src="./images/onemanstudioupdated.png"></img>
+                    <div className="NavMenu setBackgroundColorToPrimaryColor">
+                        <h3 className="LogoFont setColorToBackgroundColor">ONE
                             MAN 
                             STUDIO
                         </h3>
                         <div className="NavMenuButtons">
-                            <a class="link" href="#">HOME</a>
+                            <a class="link setColorToBackgroundColor" href="#">HOME</a>
                         </div>
                     </div>
                 </div>

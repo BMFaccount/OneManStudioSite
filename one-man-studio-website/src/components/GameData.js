@@ -2,16 +2,16 @@ export const games = {
     lostTrooper : {
         name: "Lost Trooper",
         iconPath: "lostrooper.png",
-        imgAndGifsPaths: ["sad", "asd", "asd"]
+        imgAndGifsPaths: ["losttroopergif.gif"]
     },
     trainYourPenguin : {
         name: "Train your penguin",
         iconPath: "penguintrain.png",
-        imgAndGifsPaths: ["sad", "asd", "asd"]
+        imgAndGifsPaths: ["penguintrain.png"]
     },
     castleCrusher : {
         name: "Castle crusher",
         iconPath: "castlecrusher.png",
-        imgAndGifsPaths: ["sad", "asd", "asd"]
+        imgAndGifsPaths: ["castlecrusher.png"]
     }
 }
