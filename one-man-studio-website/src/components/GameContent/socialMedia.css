@@ -1,0 +1,119 @@
+.SocialMediaLinks ul {
+   display: flex;
+   transform: rotate(-2deg) skew(0deg);
+   transform-style: preserve-3d;
+   flex-direction: row-reverse;
+   align-items: flex-end;
+}
+.SocialMediaLinks ul li {
+  position: relative;
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  margin: 0px 20px;
+}
+.SocialMediaLinks ul li:before{
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: -5px;
+  width: 100%;
+  height: 10px;
+  background: #2a2a2a;
+  transform-origin: top;
+  transform: skewX(-41deg);
+}
+.SocialMediaLinks ul li:after{
+  content: '';
+  position: absolute;
+  top:5px;
+  right: -9px;
+  width: 9px;
+  height: 100%;
+  background: #2a2a2a;
+  transform-origin: right;
+  transform: skewY(-49deg);
+}
+.SocialMediaLinks ul li span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex !important;
+  background: #2a475e;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 30px !important;
+  transition: 1.5s ease-out;
+}
+.SocialMediaLinks ul li:hover span {
+  z-index: 1000;
+  transition: .3s;
+  color: #fff;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, .5);
+}
+.socialMediaTxt{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #ffffff00;
+    transition: 1.5s ease-out;
+    user-select: none;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+}
+.SocialMediaLinks ul li:hover:hover .socialMediaTxt{
+    z-index: 1000;
+    transition: .3s;
+    color: #fff;
+}
+.SocialMediaLinks ul li:hover .socialMediaTxt{
+    transform: translate(-100px, -40px);
+    opacity: 1;
+  }
+.SocialMediaLinks ul li:hover span:nth-child(5){
+  transform: translate(-40px, -40px);
+  opacity: 1;
+}
+.SocialMediaLinks ul li:hover span:nth-child(4){
+  transform: translate(-30px, -30px);
+  opacity: .8;
+}
+.SocialMediaLinks ul li:hover span:nth-child(3){
+  transform: translate(-20px, -20px);
+  opacity: .6;
+}
+.SocialMediaLinks ul li:hover span:nth-child(2){
+  transform: translate(-10px, -10px);
+  opacity: .4;
+}
+.SocialMediaLinks ul li:hover span:nth-child(1){
+  transform: translate(0px, 0px);
+  opacity: .2;
+}
+li.unity:hover span{
+  background: #414141 !important;
+}
+li.youtube:hover span{
+  background: #e0353e !important;
+}
+li.google-play:hover span{
+  background: #52E19F !important;
+}
+li.steam:hover span{
+    background: #52E19F !important;
+  }
+li.epic:hover span{
+    background: #414141 !important;
+}
+.companyTitle{
+    font-size: 5px !important;
+}
+.customMediaIcon{
+    height: 40px !important;
+}

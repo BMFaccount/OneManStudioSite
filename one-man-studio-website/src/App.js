@@ -6,12 +6,17 @@ import GameContent from "./components/GameContent/gameContent.js";
 import {games} from "./components/GameData.js";
 function App() {
 	const [game, setGame] = useState(games.lostTrooper);
+	const [imgIndex, setImgIndex] = useState(0)
+	var imgUseState = {
+		imgIndex : imgIndex,
+		setImgIndex : setImgIndex
+	}
 	return (
 		<div className="App">
-			<GameList setGame={setGame}/>
+			<GameList setImgIndex={setImgIndex} setGame={setGame}/>
 			<div className='RightContentContainer'>
 				<NavBar/>
-				<GameContent game={game}></GameContent>
+				<GameContent imgUseState={imgUseState} game={game}></GameContent>
 			</div>
 		</div>
 	);

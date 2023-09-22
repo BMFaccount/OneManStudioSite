@@ -5,13 +5,17 @@ import {games} from "../GameData.js";
 function GetGameObjByName(name){
     return Object.values(games).find(game => game.name === name)
 }
-function GameContainer({name, imgLink, setGame}){
+function GameContainer({game, setGame, setImgIndex}){
+    let gameObj = games[game];
+    let name = gameObj.name;
+    let imgLink = gameObj.iconPath;
     const handleClick = (name) => {
         console.log(GetGameObjByName(name))
         setGame(GetGameObjByName(name))
+        setImgIndex(0)
     }
 
-    var imgLinkString = "./images/gamescreenshots/" + imgLink
+    var imgLinkString = "./images/gameicons/" + imgLink
     return(
         <>
             <div onClick={() => handleClick(name)} className="GameContainer">
@@ -24,15 +28,16 @@ function GameContainer({name, imgLink, setGame}){
     )
 }
 
-function GameList({setGame}){
+function GameList({setGame, setImgIndex}){
     return (
         <>
             <div className="GameListContainer">
                 <div className="GameList">
                     {Object.keys(games).map(game => (
-                        <GameContainer name={games[game].name} imgLink={games[game].iconPath} setGame={setGame}></GameContainer>
+                        <GameContainer game={game} setGame={setGame} setImgIndex={setImgIndex}></GameContainer>
                     ))}
                 </div>
+                
             </div>
         </>
     )
