@@ -1,37 +1,28 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import './gameContent.css';
 import './socialMedia.css';
-async function GetListOfImages(imgSrcPath){
+async function GetImagePromise(imgSrcPath){
     let i = 0;
-    let imgAndGifsPaths = [];
-    const loadImage = src => {
-        return new Promise((resolve, reject) => {
-          const img = new Image();
-          img.onload = resolve(
-            imgAndGifsPaths.push(src)
-          );
-          img.src = src;
-          img.onerror = reject;
-        });
-      };
+    let imgAndGifsPaths2 = [];
     let fileTypes = [".png", ".gif"]
-    let promises = [];
-    while(true){
+    let bool = true
+    while(bool){
         i++;
-        fileTypes.map(type =>
+        fileTypes.map(async type =>
             {
-                promises.push(loadImage(imgSrcPath + "image"+i+type))
+                let src = imgSrcPath + "image"+i+type
+                const response = await fetch(src).then((res) => {
+                    if(res.headers.get("content-type") != "text/html; charset=utf-8"){
+                        imgAndGifsPaths2.push(src)
+                    }else{
+                        bool = false
+                    }
+                })
             }
         )
-        try {
-            await Promise.all(promises); // just to make while stop
-        } catch (e) {
-            break;
-        }
-        if (i >= 10) break;
+        if (i >= 7) break; // 7 IMAGES MAX
     }
-    console.log(imgAndGifsPaths)
-    return imgAndGifsPaths;
+    return imgAndGifsPaths2
 }
 
 function GameContent({game, imgUseState}){
@@ -45,8 +36,16 @@ function GameContent({game, imgUseState}){
                 return "./images/gamescreenshots/castleCrusherScreens/"
         }
     }
-    let imgSrcPath = GetImgSrcPath();
-    let imgAndGifsPaths = GetListOfImages(imgSrcPath);
+    
+    const [imgAndGifsPaths, setImgPaths] = useState([]) //adding this use state makes it go kuku.......
+    //let imgAndGifsPaths = [];
+    useEffect(() => {
+        GetImagePromise(GetImgSrcPath()).then((a) => {
+            //console.log(a)
+            setImgPaths(a)
+        })
+    }, [game])
+    console.log(imgAndGifsPaths)
     return (
         <>
             <div className="GameView">
@@ -56,19 +55,24 @@ function GameContent({game, imgUseState}){
                             <h2 className="setColorToPrimaryColor">{game.name}</h2>
                         </div>
                         <img className="setBackgroundColorToSecondaryColor" src={
-
-                            imgAndGifsPaths[imgUseState.imgIndex]
+                            imgAndGifsPaths.length > 0?
+                            imgAndGifsPaths[imgUseState.imgIndex] : "#"
                         }/>
                     </div>
                     <div className="ImageSelections">
                         {
+                            imgAndGifsPaths.length > 0?
                             imgAndGifsPaths.map((imgPath, index) => {
                                 return (
                                     <>
                                         <img onClick={() => imgUseState.setImgIndex(index)} className={imgUseState.imgIndex == index? "SelectedImgStyle" : ""} src={imgPath}/>
                                     </>
                                 )
-                            })
+                            }) :
+                            (
+                                <>
+                                </>
+                            )
                         }
                     </div>
                 </div>

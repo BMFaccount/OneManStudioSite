@@ -10,7 +10,7 @@ function GameContainer({game, setGame, setImgIndex}){
     let name = gameObj.name;
     let imgLink = gameObj.iconPath;
     const handleClick = (name) => {
-        console.log(GetGameObjByName(name))
+        //console.log(GetGameObjByName(name))
         setGame(GetGameObjByName(name))
         setImgIndex(0)
     }
