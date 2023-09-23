@@ -1,29 +1,7 @@
 import {React, useState, useEffect} from "react";
 import './gameContent.css';
 import './socialMedia.css';
-async function GetImagePromise(imgSrcPath){
-    let i = 0;
-    let imgAndGifsPaths2 = [];
-    let fileTypes = [".png", ".gif"]
-    let bool = true
-    while(bool){
-        i++;
-        fileTypes.map(async type =>
-            {
-                let src = imgSrcPath + "image"+i+type
-                const response = await fetch(src).then((res) => {
-                    if(res.headers.get("content-type") != "text/html; charset=utf-8"){
-                        imgAndGifsPaths2.push(src)
-                    }else{
-                        bool = false
-                    }
-                })
-            }
-        )
-        if (i >= 7) break; // 7 IMAGES MAX
-    }
-    return imgAndGifsPaths2
-}
+import {games} from "../GameData.js";
 
 function GameContent({game, imgUseState}){
     function GetImgSrcPath(){
@@ -36,16 +14,10 @@ function GameContent({game, imgUseState}){
                 return "./images/gamescreenshots/castleCrusherScreens/"
         }
     }
-    
-    const [imgAndGifsPaths, setImgPaths] = useState([]) //adding this use state makes it go kuku.......
-    //let imgAndGifsPaths = [];
+    let [imgSrcPath, setimg] = useState("");
     useEffect(() => {
-        GetImagePromise(GetImgSrcPath()).then((a) => {
-            //console.log(a)
-            setImgPaths(a)
-        })
+        setimg(GetImgSrcPath())
     }, [game])
-    console.log(imgAndGifsPaths)
     return (
         <>
             <div className="GameView">
@@ -55,24 +27,18 @@ function GameContent({game, imgUseState}){
                             <h2 className="setColorToPrimaryColor">{game.name}</h2>
                         </div>
                         <img className="setBackgroundColorToSecondaryColor" src={
-                            imgAndGifsPaths.length > 0?
-                            imgAndGifsPaths[imgUseState.imgIndex] : "#"
+                            imgSrcPath + game.imgAndGifsPaths[imgUseState.imgIndex]
                         }/>
                     </div>
                     <div className="ImageSelections">
                         {
-                            imgAndGifsPaths.length > 0?
-                            imgAndGifsPaths.map((imgPath, index) => {
+                            game.imgAndGifsPaths.map((imgPath, index) => {
                                 return (
                                     <>
-                                        <img onClick={() => imgUseState.setImgIndex(index)} className={imgUseState.imgIndex == index? "SelectedImgStyle" : ""} src={imgPath}/>
+                                        <img onClick={() => imgUseState.setImgIndex(index)} className={imgUseState.imgIndex == index? "SelectedImgStyle" : ""} src={imgSrcPath + imgPath}/>
                                     </>
                                 )
-                            }) :
-                            (
-                                <>
-                                </>
-                            )
+                            })
                         }
                     </div>
                 </div>
