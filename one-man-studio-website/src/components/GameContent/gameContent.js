@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from "react";
 import './gameContent.css';
 import './socialMedia.css';
-import {games} from "../GameData.js";
+let imgAndGifsPaths = [];
 
 function GameContent({game, imgUseState}){
     function GetImgSrcPath(){
@@ -17,6 +17,7 @@ function GameContent({game, imgUseState}){
     let [imgSrcPath, setimg] = useState("");
     useEffect(() => {
         setimg(GetImgSrcPath())
+        imgAndGifsPaths = game.imgAndGifsPaths;
     }, [game])
     return (
         <>
@@ -27,12 +28,12 @@ function GameContent({game, imgUseState}){
                             <h2 className="setColorToPrimaryColor">{game.name}</h2>
                         </div>
                         <img className="setBackgroundColorToSecondaryColor" src={
-                            imgSrcPath + game.imgAndGifsPaths[imgUseState.imgIndex]
+                            imgSrcPath + imgAndGifsPaths[imgUseState.imgIndex]
                         }/>
                     </div>
                     <div className="ImageSelections">
                         {
-                            game.imgAndGifsPaths.map((imgPath, index) => {
+                            imgAndGifsPaths.map((imgPath, index) => {
                                 return (
                                     <>
                                         <img onClick={() => imgUseState.setImgIndex(index)} className={imgUseState.imgIndex == index? "SelectedImgStyle" : ""} src={imgSrcPath + imgPath}/>
